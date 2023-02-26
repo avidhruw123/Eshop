@@ -1,12 +1,12 @@
-import { collection, deleteDoc, doc, onSnapshot, orderBy, query } from 'firebase/firestore'
-import  { useEffect, useState } from 'react'
+import {  deleteDoc, doc } from 'firebase/firestore'
+import  { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { db, storage } from '../../../firebase/config'
 import styles from './ViewProducts.module.scss'
 import{FaEdit,FaTrashAlt} from 'react-icons/fa'
 import Loader from '../../loader/Loader'
-import { async } from '@firebase/util'
+// import { async } from '@firebase/util'
 import { deleteObject, ref } from 'firebase/storage'
 import Notiflix from 'notiflix'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,6 +15,7 @@ import useFetchCollection from '../../../customHooks/useFetchCollection'
 
 
 const ViewProducts = () => {
+  
     const {data,isloading} = useFetchCollection("products")
     
     const products = useSelector(selectProducts)
@@ -29,39 +30,7 @@ const ViewProducts = () => {
         )
       },[dispatch, data])
 
-    // useEffect(()=>{
-    //   getProducts()
-    // },[])
-
-    // const getProducts = () => {
-    //     setIsLoading(true);
-    //     try{
-    //       const productsRef = collection(db, "products");
-    //       const q = query(productsRef, orderBy("createdAt", "desc"));
-
-         
-    //     onSnapshot(q, (snapshot) => {
-    //       // console.log(snapshot.docs);
-    //       const allProducts = snapshot.docs.map((doc)=> ({
-    //           id: doc.id,
-    //           ...doc.data()
-    //       }))
-    //       // console.log(allProducts)
-    //       setProducts(allProducts)
-    //       setIsLoading(false)
-
-    //       dispatch(
-    //         STORE_PRODUCTS({
-    //           products: allProducts,
-    //         }))
-    //   });
-
-    //     }catch(error){
-    //       setIsLoading(false)
-    //         toast.error(error.message)
-    //     }
-    // }
-
+    
     const deleteProduct = async(id,imageURL)=>{
         try{
          await deleteDoc(doc(db, "products", id));

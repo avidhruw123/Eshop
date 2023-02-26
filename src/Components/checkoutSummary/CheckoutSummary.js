@@ -6,10 +6,11 @@ import Card from '../card/Card'
 import styles from './checkoutSummary.module.scss'
 
 const CheckoutSummary = () => {
+    
     const cartItems = useSelector(selectCartItems)
     const cartTotalAmount = useSelector(selectCartTotalAmount)
     const cartTotalQuantity = useSelector(selectCartTotalQuantity)
-
+    
     
 
   return (

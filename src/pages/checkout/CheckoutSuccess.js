@@ -1,11 +1,11 @@
-import React from 'react'
+// import React from 'react'
 
-const CheckoutSuccess = () => {
-  return (
-    <div>
-      CheckoutSuccess
-    </div>
-  )
-}
+// const CheckoutSuccess = () => {
+//   return (
+//     <div>
+//       CheckoutSuccess
+//     </div>
+//   )
+// }
 
-export default CheckoutSuccess
+// export default CheckoutSuccess
